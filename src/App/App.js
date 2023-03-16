@@ -1,21 +1,27 @@
 import "./App.css";
 
-//import react-router-dom 
-import {RouterProvider, createBrowserRouter, createRoutesFromElements, Route} from 'react-router-dom'
+//import react-router-dom
+import {
+  RouterProvider,
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+} from "react-router-dom";
+
+//import components
+import HomePage from "../Components/HomePage/HomePage";
 import SearchBar from "../Components/SearchBar/SearchBar";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route>
-      <Route path="/" element={<SearchBar />}/>
+    <Route element={<SearchBar />}>
+        <Route path="/" element={<HomePage/>} />
     </Route>
   )
-)
+);
 
 function App() {
-  return (
-    <RouterProvider router={router} />
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

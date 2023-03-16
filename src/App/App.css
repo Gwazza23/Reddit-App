@@ -34,3 +34,26 @@
 .search-bar-div input:focus {
   outline: none;
 }
+
+/* MAIN CSS */
+.home-page-div {
+  display: flex;
+}
+
+.home-page-div main{
+  border: 1px solid black;
+  background:var(--secondary);
+  width: 65%;
+  margin:5px;
+}
+.home-page-div aside{
+  border: 1px solid black;
+  width: 35%;
+  margin:5px;
+}
+.home-page-div h2 {
+  font-size: 1.65rem;
+  margin-left: 10px;
+  text-decoration: underline;
+  text-decoration-color: var(--primary);
+}
