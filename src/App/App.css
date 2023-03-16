@@ -9,6 +9,11 @@
   font: "Poppins", sans-serif;
 }
 
+/* MISC */
+.loading {
+  margin-left: 10px;
+}
+
 /* SEARCH BAR CSS */
 
 .search-bar-div {
@@ -35,25 +40,111 @@
   outline: none;
 }
 
-/* MAIN CSS */
+/* HOMEPAGE CSS */
 .home-page-div {
   display: flex;
 }
 
-.home-page-div main{
-  border: 1px solid black;
-  background:var(--secondary);
+.home-page-div main {
   width: 65%;
-  margin:5px;
+  margin: 5px;
 }
-.home-page-div aside{
+.home-page-div aside {
   border: 1px solid black;
   width: 35%;
-  margin:5px;
+  margin: 5px;
 }
 .home-page-div h2 {
   font-size: 1.65rem;
   margin-left: 10px;
   text-decoration: underline;
   text-decoration-color: var(--primary);
+}
+/* HOMEPAGE - POPULAR TILES CSS */
+.popular-tiles {
+  display: block;
+  height: fit-content;
+  border: 1px solid black;
+  margin: 10px 5px;
+  background-color: var(--secondary);
+}
+.popular-tiles h4 {
+  margin: 5px;
+  height: fit-content;
+  width: fit-content;
+}
+.popular-tiles h2 {
+
+  text-decoration: none;
+  margin: 5px;
+  width: 95%;
+}
+.popular-tiles-header {
+  justify-content: space-between;
+  display: flex;
+  height: 40px;
+}
+.popular-tiles-upvotes {
+  width: 25%;
+  color: var(--primary);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  width: fit-content;
+  overflow: visible;
+}
+.popular-tiles-upvotes span {
+  margin: 1px auto;
+}
+.chevron-up {
+  margin: auto;
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  transform: scale(var(--ggs, 1));
+  width: 22px;
+  height: 22px;
+  border: 2px solid transparent;
+  border-radius: 100px;
+}
+.chevron-up::after {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid;
+  border-right: 2px solid;
+  transform: rotate(-45deg);
+  left: 4px;
+  bottom: 2px
+}
+.chevron-down {
+  margin: auto;
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  transform: scale(var(--ggs,1));
+  width: 22px;
+  height: 22px;
+  border: 2px solid transparent;
+  border-radius: 100px
+}
+.chevron-down::after {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-bottom: 2px solid;
+  border-right: 2px solid;
+  transform: rotate(45deg);
+  left: 4px;
+  top: 2px
+}
+.popular-tiles img{
+  margin: 10px;
 }
