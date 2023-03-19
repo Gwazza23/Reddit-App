@@ -1,15 +1,31 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Outlet } from "react-router-dom";
+import ReactPlayer from "react-player";
 
 //import actions
-import { fetchPopular } from "../../Features/HomePageSlice";
+import {
+  fetchPopular,
+  fetchPopularAfter,
+  fetchPopularBefore,
+} from "../../Features/HomePageSlice";
 
 //import selectors
 import { selectPopular } from "../../Features/HomePageSlice";
 
 export default function HomePage() {
   const dispatch = useDispatch();
-  const { data, status, error } = useSelector(selectPopular);
+  const { data, status, error, after, before, page } =
+    useSelector(selectPopular);
+  const handleNextPage = (e) => {
+    e.preventDefault();
+    dispatch(fetchPopularAfter(after));
+  };
+  const handlePreviousPage = (e) => {
+    e.preventDefault();
+    dispatch(fetchPopularBefore(before));
+  };
+
   useEffect(() => {
     dispatch(fetchPopular());
   }, [dispatch]);
@@ -17,44 +33,87 @@ export default function HomePage() {
   if (status === "loading") {
     return <h1 className="loading">Loading...</h1>;
   }
-  if (status === 'error') {
-    return <h1>{error}</h1>
+  if (status === "error") {
+    return <h1>{error}</h1>;
   }
 
   return (
-    <div className="home-page-div">
-      <main>
-        <h2>Popular</h2>
-        <div>
-          {Object.values(data).map((obj) => {
-            return (
-              <div className="popular-tiles">
-                <div className="popular-tiles-header">
-                  <h4>{obj.subreddit_name_prefixed}</h4>
-                  <div className="popular-tiles-upvotes">
-                    <span>
-                      <i className="chevron-up"></i>
-                      {obj.score}
-                      <i className="chevron-down"></i>
-                    </span>
+    <>
+      <div className="home-page-div">
+        <main>
+          <h2>Popular</h2>
+          <div>
+            {Object.values(data).map((obj) => {
+              return (
+                <div className="popular-tiles" key={obj.id}>
+                  <div className="popular-tiles-header">
+                    <div className="popular-tiles-subreddit-name">
+                      <h4>r<span>/{obj.subreddit}</span></h4>
+                    </div>
+                    <div className="popular-tiles-upvotes">
+                      <span>
+                        <i className="chevron-up"></i>
+                        {obj.score}
+                        <i className="chevron-down"></i>
+                      </span>
+                    </div>
+                  </div>
+                  <div className="popular-tiles-title">
+                    <h2>{obj.title}</h2>
+                  </div>
+                  <div className="popular-tiles-media">
+                    {obj.video_url && (
+                      <div className="video-container">
+                        <ReactPlayer
+                          className="video"
+                          url={obj.video_url}
+                          controls={true}
+                          muted
+                          playing
+                        />
+                      </div>
+                    )}
+                    {obj.post_hint === "image" && obj.image_url && (
+                      <div className="image-container">
+                        <img src={obj.image_url} alt={obj.title} />
+                      </div>
+                    )}
+                    {obj.gif_url && (
+                      <div className="gif-container">
+                        <video
+                          className="gif"
+                          src={obj.gif_url}
+                          autoPlay
+                          loop
+                          muted
+                        />
+                      </div>
+                    )}
                   </div>
                 </div>
-                <h2>{obj.title}</h2>
-                <p>{obj.selftext_html}</p>
-                <img
-                  src={
-                    obj.thumbnail === "default" || obj.thumbnail === "self"
-                      ? undefined
-                      : obj.thumbnail
-                  }
-                  alt="thumbnail"
-                />
-              </div>
-            );
-          })}
-        </div>
-      </main>
-      <aside></aside>
-    </div>
+              );
+            })}
+          </div>
+
+          {page === 0 ? (
+            <div className="nav-button-div">
+              <button className="nav-button" onClick={handleNextPage}>
+                next page
+              </button>
+            </div>
+          ) : (
+            <div className="nav-button-div">
+              <button className="nav-button" onClick={handlePreviousPage}>
+                previous page
+              </button>
+              <button className="nav-button" onClick={handleNextPage}>
+                next page
+              </button>
+            </div>
+          )}
+        </main>
+      </div>
+      <Outlet />
+    </>
   );
 }

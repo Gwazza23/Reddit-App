@@ -2,6 +2,7 @@
 :root {
   --primary: #1434a4;
   --secondary: #eaf2f8;
+  --secondary-dark: #d9e7f2;
   --tertiary: #fbfcfc;
 }
 * {
@@ -62,42 +63,43 @@
 }
 /* HOMEPAGE - POPULAR TILES CSS */
 .popular-tiles {
-  display: block;
-  height: fit-content;
-  border: 1px solid black;
-  margin: 10px 5px;
-  background-color: var(--secondary);
-}
-.popular-tiles h4 {
-  margin: 5px;
-  height: fit-content;
-  width: fit-content;
-}
-.popular-tiles h2 {
-
-  text-decoration: none;
-  margin: 5px;
-  width: 95%;
-}
-.popular-tiles-header {
-  justify-content: space-between;
-  display: flex;
-  height: 40px;
-}
-.popular-tiles-upvotes {
-  width: 25%;
-  color: var(--primary);
-  text-align: center;
   display: flex;
   flex-direction: column;
-  margin: 5px;
+  padding: 10px;
+  margin: 10px;
+  background: var(--secondary);
+  border-radius: 5px;
+  box-shadow: 0px 0px 2px;
+  cursor: pointer;
+}
+.popular-tiles:hover{
+  box-shadow: 0px 0px 3px var(--primary);
+  background: var(--secondary-dark);
+  transition: 0.2s ease-in;
+}
+.popular-tiles-header{
+  display: flex;
+}
+.popular-tiles-subreddit-name {
+  width: 85%;
+}
+.popular-tiles-subreddit-name h4{
   width: fit-content;
-  overflow: visible;
+  text-decoration: underline;
+  font-size: 1.1rem;
+  text-decoration-color: var(--primary)
 }
-.popular-tiles-upvotes span {
-  margin: 1px auto;
+.popular-tiles-subreddit-name h4 span:hover{
+  letter-spacing: 3px;
+  transition: 0.2s ease-in-out;
 }
-.chevron-up {
+
+.popular-tiles-upvotes{
+  display: flex;
+  justify-content: center;
+  width: 15%;
+}
+.chevron-up{
   margin: auto;
   box-sizing: border-box;
   position: relative;
@@ -145,6 +147,27 @@
   left: 4px;
   top: 2px
 }
-.popular-tiles img{
-  margin: 10px;
+.popular-tiles-title {
+  text-align: center;
+}
+.video-container, .image-container, .gif-container{
+  display: flex;
+  justify-content: center;
+}
+.popular-tiles-media img, .video, .gif{
+  contain: content;
+  margin: 20px;
+  max-width: 350px;
+  max-height: 350px;
+}
+.nav-button-div{
+  display: flex;
+  justify-content: center;
+}
+.nav-button {
+  background-color: var(--tertiary);
+  margin: auto 10px;
+  padding: 15px;
+  border: 1px solid black;
+  border-radius: 5px;
 }
