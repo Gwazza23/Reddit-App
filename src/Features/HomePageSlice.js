@@ -12,7 +12,6 @@ const fetchPopular = createAsyncThunk("home/fetchPopular", async (thunkAPI) => {
     score: object.data.score,
     author: object.data.author,
     subreddit: object.data.subreddit,
-    subreddit: object.data.subreddit,
     selftext_html: object.data.selftext_html,
     video_url: object.data.media && object.data.media.reddit_video && object.data.media.reddit_video.hls_url,
     image_url: object.data.url,
@@ -36,15 +35,19 @@ const fetchPopularAfter = createAsyncThunk(
     const data = json.data.children;
     const dataArray = data.map((object) => ({
       id: object.data.id,
-      title: object.data.title,
-      name: object.data.name,
-      score: object.data.score,
-      author: object.data.author,
-      subreddit: object.data.subreddit,
-      thumbnail: object.data.thumbnail,
-      thumbnail_width: object.data.thumbnail_width,
-      thumbnail_height: object.data.thumbnail_height,
-      subreddit_name_prefixed: object.data.subreddit_name_prefixed,
+    title: object.data.title,
+    name: object.data.name,
+    score: object.data.score,
+    author: object.data.author,
+    subreddit: object.data.subreddit,
+    selftext_html: object.data.selftext_html,
+    video_url: object.data.media && object.data.media.reddit_video && object.data.media.reddit_video.hls_url,
+    image_url: object.data.url,
+    gif_url:
+      object.data.preview &&
+      object.data.preview.reddit_video_preview &&
+      object.data.preview.reddit_video_preview.fallback_url,
+    post_hint: object.data.post_hint
     }));
 
     return dataArray;
@@ -61,15 +64,19 @@ const fetchPopularBefore = createAsyncThunk(
     const data = json.data.children;
     const dataArray = data.map((object) => ({
       id: object.data.id,
-      title: object.data.title,
-      name: object.data.name,
-      score: object.data.score,
-      author: object.data.author,
-      subreddit: object.data.subreddit,
-      thumbnail: object.data.thumbnail,
-      thumbnail_width: object.data.thumbnail_width,
-      thumbnail_height: object.data.thumbnail_height,
-      subreddit_name_prefixed: object.data.subreddit_name_prefixed,
+    title: object.data.title,
+    name: object.data.name,
+    score: object.data.score,
+    author: object.data.author,
+    subreddit: object.data.subreddit,
+    selftext_html: object.data.selftext_html,
+    video_url: object.data.media && object.data.media.reddit_video && object.data.media.reddit_video.hls_url,
+    image_url: object.data.url,
+    gif_url:
+      object.data.preview &&
+      object.data.preview.reddit_video_preview &&
+      object.data.preview.reddit_video_preview.fallback_url,
+    post_hint: object.data.post_hint
     }));
 
     return dataArray;

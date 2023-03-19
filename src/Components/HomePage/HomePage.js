@@ -13,10 +13,15 @@ import {
 //import selectors
 import { selectPopular } from "../../Features/HomePageSlice";
 
+//import components
+import SubredditList from "../SubredditList/SubredditList";
+
 export default function HomePage() {
   const dispatch = useDispatch();
+
   const { data, status, error, after, before, page } =
     useSelector(selectPopular);
+    
   const handleNextPage = (e) => {
     e.preventDefault();
     dispatch(fetchPopularAfter(after));
@@ -112,6 +117,9 @@ export default function HomePage() {
             </div>
           )}
         </main>
+        <aside>
+          <SubredditList />
+        </aside>
       </div>
       <Outlet />
     </>
