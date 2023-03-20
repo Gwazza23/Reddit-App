@@ -1,6 +1,25 @@
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useNavigate } from "react-router-dom";
+import {useDispatch, useSelector} from 'react-redux'
+
+import { selectSearch } from "../../Features/SearchSlice";
+import { fetchSubredditSearch } from "../../Features/SearchSlice";
+import { useState } from "react";
 
 export default function SearchBar() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [search, setSearch] = useState();
+
+  const handleInputChange = (e) =>{
+    setSearch(e.target.value)
+  }
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(fetchSubredditSearch(search))
+    navigate(`/search/:${search}`)
+  }
+  
   return (
     <>
       <div className="search-bar-div">
@@ -9,8 +28,8 @@ export default function SearchBar() {
             Reddit<span>.min</span>
           </h1>
         </Link>
-        <form>
-          <input />
+        <form onSubmit={handleSubmit}>
+          <input placeholder="search subreddits..." onChange={handleInputChange}/>
         </form>
       </div>
       <Outlet />
