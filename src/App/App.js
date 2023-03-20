@@ -11,11 +11,13 @@ import {
 //import components
 import HomePage from "../Components/HomePage/HomePage";
 import SearchBar from "../Components/SearchBar/SearchBar";
+import SubredditPage from "../Components/SubredditPage/SubredditPage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<SearchBar />}>
         <Route path="/" element={<HomePage/>} />
+        <Route path=":subreddit" element={<SubredditPage />}/>
     </Route>
   )
 );

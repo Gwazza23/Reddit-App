@@ -13,13 +13,17 @@ const fetchPopular = createAsyncThunk("home/fetchPopular", async (thunkAPI) => {
     author: object.data.author,
     subreddit: object.data.subreddit,
     selftext_html: object.data.selftext_html,
-    video_url: object.data.media && object.data.media.reddit_video && object.data.media.reddit_video.hls_url,
+    video_url:
+      object.data.media &&
+      object.data.media.reddit_video &&
+      object.data.media.reddit_video.hls_url,
     image_url: object.data.url,
     gif_url:
       object.data.preview &&
       object.data.preview.reddit_video_preview &&
       object.data.preview.reddit_video_preview.fallback_url,
-    post_hint: object.data.post_hint
+    post_hint: object.data.post_hint,
+    subreddit_id: object.data.subreddit_id,
   }));
 
   return dataArray;
@@ -35,19 +39,23 @@ const fetchPopularAfter = createAsyncThunk(
     const data = json.data.children;
     const dataArray = data.map((object) => ({
       id: object.data.id,
-    title: object.data.title,
-    name: object.data.name,
-    score: object.data.score,
-    author: object.data.author,
-    subreddit: object.data.subreddit,
-    selftext_html: object.data.selftext_html,
-    video_url: object.data.media && object.data.media.reddit_video && object.data.media.reddit_video.hls_url,
-    image_url: object.data.url,
-    gif_url:
-      object.data.preview &&
-      object.data.preview.reddit_video_preview &&
-      object.data.preview.reddit_video_preview.fallback_url,
-    post_hint: object.data.post_hint
+      title: object.data.title,
+      name: object.data.name,
+      score: object.data.score,
+      author: object.data.author,
+      subreddit: object.data.subreddit,
+      selftext_html: object.data.selftext_html,
+      video_url:
+        object.data.media &&
+        object.data.media.reddit_video &&
+        object.data.media.reddit_video.hls_url,
+      image_url: object.data.url,
+      gif_url:
+        object.data.preview &&
+        object.data.preview.reddit_video_preview &&
+        object.data.preview.reddit_video_preview.fallback_url,
+      post_hint: object.data.post_hint,
+      subreddit_id: object.data.subreddit_id,
     }));
 
     return dataArray;
@@ -64,19 +72,23 @@ const fetchPopularBefore = createAsyncThunk(
     const data = json.data.children;
     const dataArray = data.map((object) => ({
       id: object.data.id,
-    title: object.data.title,
-    name: object.data.name,
-    score: object.data.score,
-    author: object.data.author,
-    subreddit: object.data.subreddit,
-    selftext_html: object.data.selftext_html,
-    video_url: object.data.media && object.data.media.reddit_video && object.data.media.reddit_video.hls_url,
-    image_url: object.data.url,
-    gif_url:
-      object.data.preview &&
-      object.data.preview.reddit_video_preview &&
-      object.data.preview.reddit_video_preview.fallback_url,
-    post_hint: object.data.post_hint
+      title: object.data.title,
+      name: object.data.name,
+      score: object.data.score,
+      author: object.data.author,
+      subreddit: object.data.subreddit,
+      selftext_html: object.data.selftext_html,
+      video_url:
+        object.data.media &&
+        object.data.media.reddit_video &&
+        object.data.media.reddit_video.hls_url,
+      image_url: object.data.url,
+      gif_url:
+        object.data.preview &&
+        object.data.preview.reddit_video_preview &&
+        object.data.preview.reddit_video_preview.fallback_url,
+      post_hint: object.data.post_hint,
+      subreddit_id: object.data.subreddit_id,
     }));
 
     return dataArray;

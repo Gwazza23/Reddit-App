@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Outlet } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 import ReactPlayer from "react-player";
 
 //import actions
@@ -53,7 +53,7 @@ export default function HomePage() {
                 <div className="popular-tiles" key={obj.id}>
                   <div className="popular-tiles-header">
                     <div className="popular-tiles-subreddit-name">
-                      <h4>r<span>/{obj.subreddit}</span></h4>
+                     <Link className="link" to={`:${obj.subreddit}`}><h4>r<span>/{obj.subreddit}</span></h4></Link>
                     </div>
                     <div className="popular-tiles-upvotes">
                       <span>

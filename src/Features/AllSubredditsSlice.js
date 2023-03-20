@@ -10,7 +10,8 @@ const fetchPopularSubreddits = createAsyncThunk(
     const data = json.data.children;
 
     const dataArray = data.map((object) => ({
-      id: object.data.id,
+      display_name:object.data.display_name,
+      name: object.data.name,
       display_name: object.data.display_name,
       header_img: object.data.header_img,
       icon_img: object.data.icon_img
