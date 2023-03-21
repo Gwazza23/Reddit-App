@@ -13,6 +13,7 @@ import HomePage from "../Components/HomePage/HomePage";
 import SearchBar from "../Components/SearchBar/SearchBar";
 import SubredditPage from "../Components/SubredditPage/SubredditPage";
 import SearchResults from "../Components/SearchResult/SearchResult";
+import Post from "../Components/Post/Post";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,6 +21,7 @@ const router = createBrowserRouter(
         <Route path="/" element={<HomePage/>} />
         <Route path=":subreddit" element={<SubredditPage />}/>
         <Route path="search/:result" element={<SearchResults />} />
+        <Route path=":subreddit/:id" element={<Post />} />
     </Route>
   )
 );

@@ -4,7 +4,7 @@
   --secondary: #eaf2f8;
   --secondary-dark: #d9e7f2;
   --tertiary: #fbfcfc;
-  --tertiary-dark:#eef2f2;
+  --tertiary-dark: #eef2f2;
 }
 * {
   box-sizing: border-box;
@@ -12,12 +12,13 @@
 }
 
 /* MISC */
-.loading h1{
-  margin-left: 10px;  
+.loading h1 {
+  margin-left: 10px;
   text-decoration: none;
 }
-.link{
+.link {
   text-decoration: none;
+  color: black;
 }
 /* SEARCH BAR CSS */
 
@@ -77,35 +78,37 @@
   box-shadow: 0px 0px 2px;
   cursor: pointer;
 }
-.popular-tiles:hover{
+.popular-tiles:hover {
   box-shadow: 0px 0px 3px var(--primary);
   background: var(--secondary-dark);
   transition: 0.2s ease-in;
 }
-.popular-tiles-header{
+.popular-tiles-header {
   display: flex;
 }
 .popular-tiles-subreddit-name {
   width: 85%;
 }
-.popular-tiles-subreddit-name h4{
+.popular-tiles-subreddit-name h4 {
   color: black;
   width: fit-content;
   text-decoration: underline;
   font-size: 1.1rem;
-  text-decoration-color: var(--primary)
+  text-decoration-color: var(--primary);
 }
-.popular-tiles-subreddit-name h4 span:hover{
+.popular-tiles-subreddit-name h4 span:hover {
   letter-spacing: 3px;
   transition: 0.2s ease-in-out;
 }
 
-.popular-tiles-upvotes{
+.popular-tiles-upvotes {
+  color: black;
   display: flex;
   justify-content: center;
   width: 15%;
 }
-.chevron-up{
+
+.chevron-up {
   margin: auto;
   box-sizing: border-box;
   position: relative;
@@ -127,18 +130,18 @@
   border-right: 2px solid;
   transform: rotate(-45deg);
   left: 4px;
-  bottom: 2px
+  bottom: 2px;
 }
 .chevron-down {
   margin: auto;
   box-sizing: border-box;
   position: relative;
   display: block;
-  transform: scale(var(--ggs,1));
+  transform: scale(var(--ggs, 1));
   width: 22px;
   height: 22px;
   border: 2px solid transparent;
-  border-radius: 100px
+  border-radius: 100px;
 }
 .chevron-down::after {
   content: "";
@@ -151,26 +154,31 @@
   border-right: 2px solid;
   transform: rotate(45deg);
   left: 4px;
-  top: 2px
+  top: 2px;
 }
 .popular-tiles-title {
   text-align: center;
+  color: black;
 }
-.video-container, .image-container, .gif-container{
+.video-container,
+.image-container,
+.gif-container {
   display: flex;
   justify-content: center;
 }
-.popular-tiles-media img, .video, .gif{
+.popular-tiles-media img,
+.video,
+.gif {
   contain: content;
   margin: 20px;
   max-width: 350px;
   max-height: 350px;
 }
-.nav-button-div{
+.nav-button-div {
   display: flex;
   justify-content: center;
 }
-.nav-button{
+.nav-button {
   cursor: pointer;
   background-color: var(--tertiary);
   margin: auto 10px;
@@ -197,11 +205,11 @@
 .individual-subreddit {
   cursor: pointer;
   border: 1px solid black;
-  margin:5px;
+  margin: 5px;
   border-radius: 5px;
   background-color: var(--tertiary);
 }
-.individual-subreddit:hover{
+.individual-subreddit:hover {
   background-color: var(--tertiary-dark);
   letter-spacing: 3px;
   transition: 0.3s;
@@ -212,7 +220,7 @@
 }
 
 /* SUBREDDIT PAGE CSS */
-.subreddit-page-div{
+.subreddit-page-div {
   display: flex;
   flex-direction: column;
   background-color: var(--secondary);
@@ -229,11 +237,11 @@
   width: 100%;
   background-color: var(--tertiary);
   border-radius: 5px;
-  border:1px solid black;
+  border: 1px solid black;
   padding: 15px;
   margin: 10px auto;
 }
-.subreddit-page-post:hover{
+.subreddit-page-post:hover {
   background-color: var(--secondary-dark);
 }
 .subreddit-page-header {
@@ -242,17 +250,19 @@
 .subreddit-page-header h2 {
   width: 85%;
 }
-.subreddit-page-media{
+.subreddit-page-media {
   margin: 10px auto;
-  display: inline
+  display: inline;
 }
-.subreddit-page-media img, .video, .gif{
+.subreddit-page-media img,
+.video,
+.gif {
   contain: content;
   margin: 20px;
   max-width: 350px;
   max-height: 350px;
 }
-.subreddit-page-footer{
+.subreddit-page-footer {
   width: 100%;
 }
 .subreddit-page-footer footer {
@@ -262,11 +272,11 @@
 }
 
 /* SEARCH RESULTS CSS */
-.search-results-div{
+.search-results-div {
   display: flex;
   flex-direction: column;
 }
-.search-results-div h1{
+.search-results-div h1 {
   margin-left: 10px;
 }
 .search-results-subreddits {
@@ -277,15 +287,106 @@
   margin: 10px;
   border-radius: 5px;
 }
-.search-results-subreddits:hover{
+.search-results-subreddits:hover {
   background-color: var(--secondary-dark);
   transition: 0.2s ease-in-out;
 }
-.search-results-subreddits h3{
+.search-results-subreddits h3 {
   color: black;
   margin-left: 10px;
 }
-.search-results-subreddits h6{
+.search-results-subreddits h6 {
   color: black;
-  margin:  auto 10px;
+  margin: auto 10px;
+}
+
+/* POST CSS */
+.post-header h1 {
+  text-align: center;
+  text-decoration: underline;
+  text-decoration-color: var(--primary);
+}
+.post-header .popular-tiles-upvotes {
+  margin-left: auto;
+}
+.div1 {
+  margin-top: 0px;
+  display: flex;
+}
+.div1 h4 {
+  margin-left: 10px;
+}
+.post-media video,
+img {
+  max-width: 350px;
+  max-height: 350px;
+}
+.post-media .selftext {
+  margin-left: 10px;
+}
+.post-media .url-container {
+  text-align: center;
+}
+.comment-div {
+  padding: 10px;
+  margin: 10px;
+  background: var(--secondary);
+  border-radius: 5px;
+  box-shadow: 0px 0px 2px ;
+}
+.individual-comment{
+  background-color: var(--tertiary);
+  border-radius: 5px;
+  box-shadow: 0px 0px 2px;
+  margin: 5px;
+}
+.individual-comment p{
+  padding: 10px;
+}
+.individual-comment-header {
+  display: flex;
+}
+.individual-comment-header h5 {
+  margin-left: 5px;
+}
+.individual-comment-header .popular-tiles-upvotes {
+  margin-left: auto;
+  height: 50px;
+}
+.individual-comment-header .popular-tiles-upvotes .chevron-up {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  transform: scale(var(--ggs, 1));
+  border: 2px solid transparent;
+  border-radius: 100px;
+  bottom: -20px;
+}
+.individual-comment-header .popular-tiles-upvotes .chevron-up::after {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  border-top: 2px solid;
+  border-right: 2px solid;
+  transform: rotate(-45deg);
+}
+.individual-comment-header .popular-tiles-upvotes .chevron-down {
+  margin: 1px auto ;
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  transform: scale(var(--ggs, 1));
+  border: 2px solid transparent;
+  border-radius: 100px;
+  top: -20px;
+}
+.individual-comment-header .popular-tiles-upvotes .chevron-down::after {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  border-bottom: 2px solid;
+  border-right: 2px solid;
+  transform: rotate(45deg);
 }

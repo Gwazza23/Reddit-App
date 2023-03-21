@@ -18,6 +18,7 @@ export default function SearchBar() {
     e.preventDefault();
     dispatch(fetchSubredditSearch(search))
     navigate(`/search/:${search}`)
+    setSearch('')
   }
   
   return (
@@ -29,7 +30,7 @@ export default function SearchBar() {
           </h1>
         </Link>
         <form onSubmit={handleSubmit}>
-          <input placeholder="search subreddits..." onChange={handleInputChange}/>
+          <input value={search} placeholder="search subreddits..." onChange={handleInputChange}/>
         </form>
       </div>
       <Outlet />

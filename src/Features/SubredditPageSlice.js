@@ -28,6 +28,8 @@ const fetchSubredditData = createAsyncThunk(
         object.data.preview &&
         object.data.preview.reddit_video_preview &&
         object.data.preview.reddit_video_preview.fallback_url,
+      selftext_html:object.data.selftext_html,
+      selftext:object.data.selftext
     }));
 
     return dataArray;

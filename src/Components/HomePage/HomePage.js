@@ -50,7 +50,7 @@ export default function HomePage() {
           <div>
             {Object.values(data).map((obj) => {
               return (
-                <div className="popular-tiles" key={obj.id}>
+              <Link className="link" to={`/:${obj.subreddit}/:${obj.id}`}><div className="popular-tiles" key={obj.id}>
                   <div className="popular-tiles-header">
                     <div className="popular-tiles-subreddit-name">
                      <Link className="link" to={`:${obj.subreddit}`}><h4>r<span>/{obj.subreddit}</span></h4></Link>
@@ -58,7 +58,7 @@ export default function HomePage() {
                     <div className="popular-tiles-upvotes">
                       <span>
                         <i className="chevron-up"></i>
-                        {obj.score}
+                        <p>{obj.score}</p>
                         <i className="chevron-down"></i>
                       </span>
                     </div>
@@ -95,7 +95,7 @@ export default function HomePage() {
                       </div>
                     )}
                   </div>
-                </div>
+                </div></Link>
               );
             })}
           </div>

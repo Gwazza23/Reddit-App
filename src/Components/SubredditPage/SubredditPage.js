@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ReactPlayer from "react-player";
@@ -50,7 +50,7 @@ export default function SubredditPage() {
             {status === "loading" ? (
               <h5 className="loading">Loading...</h5>
             ) : (
-              <div className="subreddit-page-post">
+              <Link className="link" to={`/:${obj.subreddit}/:${obj.id}`}><div className="subreddit-page-post">
                 <div className="subreddit-page-header">
                   <h2>{obj.title}</h2>
                   <div className="popular-tiles-upvotes">
@@ -102,7 +102,7 @@ export default function SubredditPage() {
                     <p>u/{obj.author}</p>
                   </footer>
                 </div>
-              </div>
+              </div></Link>
             )}
           </>
         );
