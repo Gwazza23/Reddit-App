@@ -11,6 +11,11 @@
   font: "Poppins", sans-serif;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+}
+
 /* MISC */
 .loading h1 {
   margin-left: 10px;
@@ -187,7 +192,7 @@
   border-radius: 5px;
 }
 
-/* ALL SUBREDDITS CSS */
+/* POPULAR SUBREDDITS CSS */
 
 .subreddit-list-div {
   margin: 15px auto;
@@ -332,15 +337,15 @@ img {
   margin: 10px;
   background: var(--secondary);
   border-radius: 5px;
-  box-shadow: 0px 0px 2px ;
+  box-shadow: 0px 0px 2px;
 }
-.individual-comment{
+.individual-comment {
   background-color: var(--tertiary);
   border-radius: 5px;
   box-shadow: 0px 0px 2px;
   margin: 5px;
 }
-.individual-comment p{
+.individual-comment p {
   padding: 10px;
 }
 .individual-comment-header {
@@ -372,7 +377,7 @@ img {
   transform: rotate(-45deg);
 }
 .individual-comment-header .popular-tiles-upvotes .chevron-down {
-  margin: 1px auto ;
+  margin: 1px auto;
   box-sizing: border-box;
   position: relative;
   display: block;
@@ -389,4 +394,138 @@ img {
   border-bottom: 2px solid;
   border-right: 2px solid;
   transform: rotate(45deg);
+}
+
+/* MEDIA QUERY */
+
+/* 430 */
+@media only screen and (max-width: 480px) {
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* 
+  ---------------------------------------------------------------------------------------------------------------------------------------
+  SEARCHBAR
+  ---------------------------------------------------------------------------------------------------------------------------------------
+  */
+
+  .search-bar-div {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--secondary);
+    box-shadow: 0px 0px 2px;
+  }
+  .search-bar-div h1 {
+    margin: 0;
+    width: auto;
+    text-align: center;
+    color: black;
+    font-size: 2.4rem;
+  }
+  .search-bar-div form {
+    margin: 5px auto;
+  }
+
+  /* 
+---------------------------------------------------------------------------------------------------------------------------------------
+HOMEPAGE - LAYOUT
+---------------------------------------------------------------------------------------------------------------------------------------
+*/
+  .home-page-div {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .home-page-div main {
+    width: auto;
+    margin: 5px;
+  }
+  .home-page-div aside {
+    width: auto;
+    margin: 5px;
+  }
+  .home-page-div h2 {
+    text-align: center;
+    font-size: 1.65rem;
+    text-decoration: underline;
+    text-decoration-color: var(--primary);
+  }
+
+  /* 
+---------------------------------------------------------------------------------------------------------------------------------------
+POPULAR SUBREDDITS
+---------------------------------------------------------------------------------------------------------------------------------------
+*/
+  .individual-subreddit {
+    padding: 7px;
+    cursor: pointer;
+    border: 1px solid black;
+    margin: 5px;
+    border-radius: 5px;
+    background-color: var(--tertiary);
+  }
+
+  /* 
+---------------------------------------------------------------------------------------------------------------------------------------
+SEARCH RESULTS
+---------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+  .search-results-subreddits {
+    padding: 7px;
+    cursor: pointer;
+    background-color: var(--secondary);
+    box-shadow: 0px 0px 2px black;
+    display: flex;
+    margin: 10px;
+    border-radius: 5px;
+  }
+
+  /* 
+---------------------------------------------------------------------------------------------------------------------------------------
+SEARCH RESULTS
+---------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+  .subreddit-page-div h1 {
+    text-align: center;
+    text-decoration: underline;
+    text-decoration-color: var(--primary);
+  }
+
+  /* 
+---------------------------------------------------------------------------------------------------------------------------------------
+SEARCH RESULTS
+---------------------------------------------------------------------------------------------------------------------------------------
+*/
+  .post-info {
+    padding: 5px;
+  }
+  .post-header h1 {
+    margin: 30px auto;
+    text-align: center;
+    text-decoration: underline;
+    text-decoration-color: var(--primary);
+  }
+
+  .comment-div {
+    padding: 10px;
+    margin: 10px;
+    background: var(--secondary);
+    border-radius: 5px;
+    box-shadow: 0px 0px 2px;
+  }
+  .individual-comment {
+    background-color: var(--tertiary);
+    border-radius: 5px;
+    box-shadow: 0px 0px 2px;
+    margin: 15px auto;
+  }
+  .individual-comment p {
+    overflow: auto;
+    padding: 10px;
+  }
 }
