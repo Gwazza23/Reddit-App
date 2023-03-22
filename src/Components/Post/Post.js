@@ -52,10 +52,10 @@ export default function Post() {
     lookup[obj.name] = obj;
   }
 
+  if(subredditData.length > 0){
   for (const obj of postData.data) {
     const match = lookup[obj.parent_id];
     if (match) {
-      const unescaped = decodeURI(match.selftext_html);
       return (
         <>
           <div className="post-info">
@@ -141,4 +141,7 @@ export default function Post() {
       );
     }
   }
+}else{
+  return <h1>Error, no result found</h1>
+}
 }
