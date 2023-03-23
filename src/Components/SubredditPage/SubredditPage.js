@@ -72,7 +72,6 @@ export default function SubredditPage() {
                             url={obj.video_url}
                             controls={true}
                             muted
-                            playing
                           />
                         </div>
                       )}
@@ -94,7 +93,11 @@ export default function SubredditPage() {
                       )}
                       {obj.url_overridden_by_dest && (
                         <div className="url-container">
-                          <a href={obj.url_overridden_by_dest} target="_blank" rel="noreferrer">
+                          <a
+                            href={obj.url_overridden_by_dest}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
                             Link
                           </a>
                         </div>

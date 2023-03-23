@@ -74,7 +74,6 @@ export default function HomePage() {
                           url={obj.video_url}
                           controls={true}
                           muted
-                          playing
                         />
                       </div>
                     )}

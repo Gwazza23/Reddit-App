@@ -76,7 +76,6 @@ export default function Post() {
                   url={match.video_url}
                   controls={true}
                   muted
-                  playing
                 />
               </div>
             )}
@@ -91,9 +90,9 @@ export default function Post() {
                   <video
                     className="gif"
                     src={match.gif_url}
-                    autoPlay
                     loop
                     muted
+                    autoPlay
                   />
                 </div>
               )}
