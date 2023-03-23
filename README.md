@@ -1,70 +1,25 @@
-# Getting Started with Create React App
+# Reddit.min
+Reddit.min is a web app that is a simplified version of Reddit.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
+This project was made as part of the portofolio project for codecademy. Reddit.min is a simplified version of a normal reddit web app that only uitlises the essential features. 
 
-## Available Scripts
+### Components of the web app
+* Reddit API Json - used to fetch data from the api which is then displayed on the web page.
+* React - used to create interactive interface by creating components that link with one another
+* CSS - used to add styling to the HTML
+* HTML - basic html used to create JSX for React Components
+* React Router - used to link React components with one another in order to allow users to navigate between different components
+* React Redux - used to store and read data that is fetched from the reddit API and dispatch actions to the store in order to update the data.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+At the top of each page is a search bar which can be used to navigate to any subreddit.  
+The subreddit search page contains a list of subreddits that are most closely associated with the input given in the search bar,each subreddit tile display the number of members in the subreddit, you can navigate to individual subreddits from here.    
+The Reddit.min home page contains a list of currently popular post worlwide along with the score for each post and a side container containing the top 10 popular subreddits worlwide, both these components of the homepage will change overtime according to the data fetched from the API.You can navigate to the subreddits or the posts through here.  
+Each Post indicates the author and the score of the post, it will include videos,images gif or a link to content that is on another website.Comments for each post can also be viewed along with the score.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features to implement in the future
+1. From the home page and each subreddit page implement the ability to toggle between hot,new and top posts.  
+2. Implement image carousels into each post instead of redirecting users to website that hosts the pictures.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
