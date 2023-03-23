@@ -23,7 +23,7 @@ const router = createBrowserRouter(
       <Route path=":subreddit" element={<SubredditPage />} />
       <Route path="search/:result" element={<SearchResults />} />
       <Route path=":subreddit/:id" element={<Post />} />
-      <Route path="*" element={<ErrorPage />} />
+      <Route path="/*" element={<ErrorPage />} />
     </Route>
   )
 );

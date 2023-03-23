@@ -1,7 +1,6 @@
 import { Outlet, Link, useNavigate } from "react-router-dom";
-import {useDispatch, useSelector} from 'react-redux'
+import {useDispatch} from 'react-redux'
 
-import { selectSearch } from "../../Features/SearchSlice";
 import { fetchSubredditSearch } from "../../Features/SearchSlice";
 import { useState } from "react";
 
@@ -18,7 +17,7 @@ export default function SearchBar() {
     e.preventDefault();
     dispatch(fetchSubredditSearch(search))
     navigate(`/search/:${search}`)
-    setSearch('')
+    setSearch("")
   }
   
   return (

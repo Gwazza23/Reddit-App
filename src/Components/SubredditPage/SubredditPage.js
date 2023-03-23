@@ -39,7 +39,7 @@ export default function SubredditPage() {
 
   useEffect(() => {
     dispatch(fetchSubredditData(sub));
-  }, [dispatch]);
+  }, [dispatch, sub]);
 
   return (
     <div className="subreddit-page-div">
@@ -94,7 +94,7 @@ export default function SubredditPage() {
                       )}
                       {obj.url_overridden_by_dest && (
                         <div className="url-container">
-                          <a href={obj.url_overridden_by_dest} target="_blank">
+                          <a href={obj.url_overridden_by_dest} target="_blank" rel="noreferrer">
                             Link
                           </a>
                         </div>

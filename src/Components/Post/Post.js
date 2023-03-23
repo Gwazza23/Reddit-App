@@ -29,8 +29,8 @@ export default function Post() {
 
   useEffect(() => {
     dispatch(fetchSubredditData(subreddit));
-    dispatch(fetchPostComments({ subreddit: subreddit, id: id }));
-  }, [dispatch]);
+    dispatch(fetchPostComments({ subreddit, id }));
+  }, [dispatch, subreddit, id]);
 
   if (postData.status === "loading") {
     return <h1 className="loading">Loading...</h1>;
@@ -45,20 +45,17 @@ export default function Post() {
     return <h1>{subredditData.error}</h1>;
   }
 
-  console.log(postData.data);
-
   const lookup = {};
   for (const obj of subredditData.data) {
     lookup[obj.name] = obj;
   }
 
-  if(subredditData.length > 0){
   for (const obj of postData.data) {
     const match = lookup[obj.parent_id];
     if (match) {
       return (
         <>
-          <div className="post-info">
+          <div className="post-info" key={match.id}>
             <div className="post-header">
               <h1>{match.title}</h1>
               <div className="div1">
@@ -102,7 +99,11 @@ export default function Post() {
               )}
               {match.url_overridden_by_dest && (
                 <div className="url-container">
-                  <a href={match.url_overridden_by_dest} target="_blank">
+                  <a
+                    href={match.url_overridden_by_dest}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     Link to content
                   </a>
                 </div>
@@ -119,9 +120,8 @@ export default function Post() {
           </div>
           <div className="comment-div">
             {postData.data.map((obj) => {
-              return (
-                obj.body ?
-                (<div className="individual-comment">
+              return obj.body ? (
+                <div className="individual-comment" key={obj.id}>
                   <div className="individual-comment-header">
                     <h5>u/{obj.author}</h5>
                     <div className="popular-tiles-upvotes">
@@ -133,15 +133,15 @@ export default function Post() {
                     </div>
                   </div>
                   <p>{obj.body}</p>
-                </div>) : null
-              );
+                </div>
+              ) : null;
             })}
           </div>
         </>
       );
     }
   }
-}else{
-  return <h1>Error, no result found</h1>
-}
+  if (postData.status === "error") {
+    return <h1>Error, no results found</h1>;
+  }
 }
