@@ -18,6 +18,7 @@ At the top of each page is a search bar which can be used to navigate to any sub
 The subreddit search page contains a list of subreddits that are most closely associated with the input given in the search bar,each subreddit tile display the number of members in the subreddit, you can navigate to individual subreddits from here.    
 The Reddit.min home page contains a list of currently popular post worlwide along with the score for each post and a side container containing the top 10 popular subreddits worlwide, both these components of the homepage will change overtime according to the data fetched from the API.You can navigate to the subreddits or the posts through here.  
 Each Post indicates the author and the score of the post, it will include videos,images gif or a link to content that is on another website.Comments for each post can also be viewed along with the score.
+Users are guided to error pages in the case where the API cannot fetch any data.
 
 ## Features to implement in the future
 1. From the home page and each subreddit page implement the ability to toggle between hot,new and top posts.  
